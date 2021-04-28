@@ -1,0 +1,35 @@
+<%- include('include/header') %>
+<body>
+    <div class="container">
+        <h1>Home Page</h1>
+        <a href="/add" class="btn btn-primary">Add Student</a>
+        <a href="/add_university" class="btn btn-success">Add University</a>
+        
+        <table class="table mt-5">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Firstname</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Age</th>
+                <th scope="col">University</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(function(user) { %>
+              <tr>
+                <th><%=user.id%></th>
+                <td><%=user.firstname%></td>
+                <td><%=user.lastname%></td>
+                <td><%=user.age%></td>
+                <td><%=user.university_id%></td> 
+              </tr>
+              <% })%>
+            </tbody>
+          </table>
+    
+    
+    </div>
+</body>
+
+<%- include('include/footer') %>

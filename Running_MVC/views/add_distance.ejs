@@ -1,0 +1,23 @@
+<%- include('include/header') %>
+    <div class="container mt-5">
+        <h1 align="center">Add Runner</h1>
+        <% if(message) { %>
+            <h5><%=message%></h5>
+        <% } %>
+        <form action="/add_distance" class="form-group" method="POST">
+            <label for="id">User_ID</label>
+            <select class="form-select mt-3" name="id" aria-label="Default select example ">
+                <% users.forEach(function(user) { %>
+                <option value=<%=user.id%>><%=user.id%></option>
+                <% })%>
+            </select>
+            <br>
+            <label for="Distance">Distance</label>
+            <input type="text" name="distance" class="form-control" placeholder="Distance Cannot more than 10 KM."  required>
+            <br>
+            <input type="submit" class="btn btn-success" value="Enter">
+        </form>
+        
+    </div>
+
+<%- include('include/footer') %>

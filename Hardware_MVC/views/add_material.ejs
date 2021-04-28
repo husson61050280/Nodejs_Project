@@ -1,0 +1,33 @@
+<%- include('include/header') %>
+    <div class="container mt-5">
+        <h1 align="center">Add Material</h1>
+        <% if(message) { %>
+            <h5><%=message%></h5>
+        <% } %>
+        <form action="/add_material" class="form-group" method="POST">
+            <label for="Materail ID">ID</label>
+            <input type="text" name="id" class="form-control" placeholder="C1000" required>
+            <br>
+            <label for="name">Name</label>
+            <input type="text" name="name" class="form-control" placeholder="name"  required>
+            <br>
+            <label for="Price">Price</label>
+            <input type="text" name="price"class="form-control" placeholder="300" required>
+            <br>
+            <label for="total">Total</label>
+            <input type="text" name="total" class="form-control" placeholder="30"  required>
+            <br>
+            <label for="Type_id">Type Name</label>
+            <select class="form-select mt-3" name="type_id" aria-label="Default select example ">
+              <% Alltype.forEach(function(type) { %>
+              <option value=<%=type.id%>><%=type.name%></option>
+              <% })%>
+            </select>
+            <br>
+
+            <input type="submit" class="btn btn-success" value="Enter">
+        </form>
+        
+    </div>
+
+<%- include('include/footer') %>

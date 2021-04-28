@@ -1,0 +1,32 @@
+<%- include('include/header') %>
+    <div class="container mt-5">
+        <h1 align="center">All Match</h1>
+        
+        <table class="table mt-5">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">Year</th>
+                <th>Vusus</th>
+                <th scope="col">ID</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">Year</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i < matchs.length; i++) { %>
+              <tr>
+                <th><%=matchs[i][0].id%></th>
+                <td><%=matchs[i][0].firstname%></td>
+                <td><%=matchs[i][0].year%></td>
+                <td>VS</td>
+                <th><%=matchs[i][1].id%></th>
+                <td><%=matchs[i][1].firstname%></td>
+                <td><%=matchs[i][1].year%></td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+    </div>
+<%- include('include/footer') %>

@@ -1,0 +1,31 @@
+{
+  "name": "se-blog",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "*",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.17.1",
+    "express-validator": "*",
+    "http-errors": "~1.6.3",
+    "moment": "*",
+    "mongod": "*",
+    "mongoose": "*",
+    "monk": "*",
+    "morgan": "~1.9.1",
+    "multer": "*",
+    "nodemailer": "^6.4.11",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "randomstring": "^1.1.5"
+  }
+}

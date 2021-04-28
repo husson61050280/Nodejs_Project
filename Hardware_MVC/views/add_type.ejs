@@ -1,0 +1,18 @@
+<%- include('include/header') %>
+    <div class="container mt-5">
+        <h1 align="center">Add Type</h1>
+        <% if(message) { %>
+            <h5><%=message%></h5>
+        <% } %>
+        <form action="/add_type" class="form-group" method="POST">
+            <label for="Type ID">ID</label>
+            <input type="text" name="id" class="form-control" placeholder="3000." required>
+            <br>
+            <label for="name">Name</label>
+            <input type="text" name="name" class="form-control" placeholder="Construction"  required>
+            <br>
+            <input type="submit" class="btn btn-success" value="Enter">
+        </form>
+    </div>
+
+<%- include('include/footer') %>

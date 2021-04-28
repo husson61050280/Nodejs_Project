@@ -1,0 +1,30 @@
+<%- include('include/header') %>
+    <div class="container mt-5">
+        <div class="container mt-5">
+            <h1 align="center">All User</h1>
+            <a href="/" class="btn btn-primary">Back</a>
+            <table class="table mt-5">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Firstname</th>
+                    <th scope="col">Lastname</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Distance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(function(user) {%>
+                    <tr>
+                      <th><%=user.id%></th>
+                      <td><%=user.firstname%></td>
+                      <td><%=user.lastname%></td>
+                      <td><%=user.age%></td>
+                      <td><%=user.distance%></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+              </table>
+        </div>
+    </div>
+<%- include('include/footer') %>

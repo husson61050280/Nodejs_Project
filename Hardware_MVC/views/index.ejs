@@ -1,0 +1,49 @@
+<%- include('include/header') %>
+    <div class="container mt-5">
+        <h1 align="center">HARDWARE MART</h1>
+        <br><br>
+        <h3 align="center">Material</h3>
+        <table class="table mt-5">
+            <thead>
+              <tr>
+                <th scope="col">Material ID</th>
+                <th scope="col">Material Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+                <th scope="col">Type_ID</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% Allmaterial.forEach(function(material) { %>
+              <tr>
+                <th><%=material.id%></th>
+                <td><%=material.name%></td>
+                <td><%=material.price%></td>
+                <td><%=material.total%></td>
+                <td><%=material.type_id%></td> 
+              </tr>
+              <% })%>
+            </tbody>
+          </table>
+          <br><br>
+          <h3 align="center">Type</h3>
+          <table class="table mt-5">
+            <thead>
+              <tr>
+                <th scope="col">Type ID</th>
+                <th scope="col">Type Name</th>
+                <th scope="col">Count Material</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% Group.forEach(function(group) { %>
+              <tr>
+                <th><%=group._id%></th>
+                <th><%=group.Typedetails[0].name%></th>
+                <td><%=group.count%></td> 
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+    </div>
+<%- include('include/footer') %>

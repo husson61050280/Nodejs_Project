@@ -1,0 +1,10 @@
+<%- include('include/header') %>
+    <div class="container mt-5">
+        <h1 align="center">Add Student</h1>
+        <% if(message) { %>
+            <h5><%=message%></h5>
+        <% } %>
+        <%- include('include/form') %>
+    </div>
+
+<%- include('include/footer') %>

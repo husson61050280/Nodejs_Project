@@ -1,0 +1,28 @@
+<%- include('include/header') %>
+    <div class="container mt-5">
+        <h1 align="center">All Student</h1>
+        
+        <table class="table mt-5">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Year</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% students.forEach(function(student) { %>
+              <tr>
+                <th><%=student.id%></th>
+                <td><%=student.firstname%></td>
+                <td><%=student.lastname%></td>
+                <td><%=student.year%></td>
+                <td><a href="/edit/<%=student._id%>" class="btn btn-warning">Edit</a> <a href="/delete/<%=student._id%>" class="btn btn-danger">Delete</a></td>
+              </tr>
+              <% })%>
+            </tbody>
+          </table>
+    </div>
+<%- include('include/footer') %>

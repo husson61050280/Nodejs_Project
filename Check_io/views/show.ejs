@@ -1,0 +1,31 @@
+<%- include('include/header') %>
+    <div class="container mt-5">
+        <h1 align="center">Account Top ten IO</h1>
+        <table class="table mt-5">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Text Show 50 Charecter</th>
+                <th scope="col">Hashtag</th>
+                <th scope="col">Length</th>
+                <th scope="col">Total I</th>
+                <th scope="col">Total O</th>
+                <th scope="col">Sum I+O</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(let i = 1; i<=10;i++){ %>
+                <tr>
+                  <th><%=i%></th>
+                  <td><%- descriptionText(Account[i].text , 50)%></td>
+                  <td><%=Account[i].hashtag%></td>
+                  <td><%=Account[i].length%></td>
+                  <td><%=Account[i].count_i%></td>
+                  <td><%=Account[i].count_o%></td>
+                  <td><%=Account[i].count_io%></td>
+                </tr>
+                <% } %>
+            </tbody>
+          </table>
+    </div>
+<%- include('include/footer') %>

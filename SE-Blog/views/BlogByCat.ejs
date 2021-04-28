@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blogs</title>
+
+    <!-- //animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.compat.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+
+
+<body>
+    <% include Layout %>
+
+    <header>
+        <div class="hero">
+            <div class="hero-image" id="ParallaxImage">
+            </div>
+            <div class="hero-content" id="ParallaxContent">
+                <% category.forEach(function(category) { %>
+                <h1><%= category.title %></h1>
+                <% }) %>
+
+                <h4>
+                    Let's Create your imagine
+                </h4>
+            </div>
+            <!-- Hero -->
+        </div>
+    </header>
+
+    <!-- content zone -->
+    <div class="container" id="content">
+        <div class="row">
+            <!-- card -->
+            <% blogs.forEach(function(blog) { %>
+            <div class=".col-6 .col-md-4  " id="blog" data-aos="fade-left">
+                <div class="card" style="width: 20rem;">
+                    <a href="/Blog/detail/<%=blog._id%>"><img src="<%=blog.img%>" class="card-img-top" alt="..."
+                            width="300px;" height="140px;"></a>
+                    <div class="card-body">
+                        <h5 class="card-title"><%=blog.title%></h5>
+                        <p class="card-text"><%- descriptionText(blog.content,250)%></p>
+                    </div>
+                    <div class="card-footer text-muted" id="card-footer">
+                        Posted on <%= moment(blog.date).format("DD-MM-YYYY") %> <br>
+                        by <%- blog.author %>
+                        <br>Category :
+                        <!-- ทำลิงค์ให้เลือกหมวดหมู่ได้ -->
+                        <a href="/Blog/GroupByCategory/<%=blog.category%>"><%= blog.category %></a>
+                    </div>
+                    <a href="/Blog/detail/<%=blog._id%>" class="btn btn-outline-dark">Read more</a>
+                    <!-- card -->
+                </div>
+            </div>
+            <% }) %>
+            <!-- row -->
+        </div>
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation example">
+            <% if (number_page > 1) { %>
+            <ul class="pagination">
+                <% for (i=1; i<= number_page; i++) { %>
+                <li class="page-item
+          <% if (page == i) {%>
+              active
+            <% } %>
+          "><a class="page-link" href="/Blog/GroupByCategory/<%= title%>?page=<%=i%>"><%=i%></a></li>
+
+                <% } %>
+            </ul>
+            <% } %>
+        </nav>
+
+        <!-- Container -->
+    </div>
+</body>
+
+
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        background-color: #f2f2f2;
+    }
+
+    h1 {
+        font-size: 110px;
+        font-weight: 900;
+        line-height: 1.1;
+        color: #fff;
+        /* บน ขวา ล่าง ซ้าย */
+        margin: 0 0 20px 0;
+    }
+
+
+    h4 {
+        font-size: 28px;
+        font-weight: 300;
+        color: #fff;
+        margin: 0;
+
+    }
+
+    .hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 42vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+
+    .hero-image {
+        background-image: url('https://www.epicgrowth.com/wp-content/uploads/2015/06/nature-best-hd-wallpapers.jpeg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 25;
+    }
+
+    .hero-content {
+        text-align: center;
+        position: relative;
+        z-index: 50
+    }
+
+    #content {
+        margin-top: 30px;
+    }
+
+
+    #blog {
+        padding: 20px;
+
+    }
+
+    #category {
+        margin: 10px;
+
+    }
+</style>
+
+<script>
+    let parallaxImage = document.getElementById('ParallaxImage');
+    let parallaxContent = document.getElementById('ParallaxContent');
+    let windowScrolled;
+
+    window.addEventListener('scroll', function windowScroll() {
+        //ค่าการ Scroll
+        windowScrolled = window.pageYOffset || this.document.documentElement.scrollTop;
+        //แก้ไขค่า speed
+        console.log(windowScrolled);
+
+        parallaxImage.style.transform = `translate3d(0,${windowScrolled / 3}px ,0)`;
+        parallaxContent.style.transform = `translate3d(0,${windowScrolled / 6}px ,0)`;
+        console.log(parallaxImage, parallaxContent);
+
+    });
+
+    //animate
+    const element = document.querySelector('#content')
+    element.classList.add('animated', 'animate__delay-2s', 'bounceInLeft')
+
+</script>
+
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+
+
+
+
+</html>
